@@ -1,0 +1,61 @@
+{
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  },
+  "[njk]": {
+    "editor.defaultFormatter": "eseom.nunjucks-template"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "css.validate": false,
+  "editor.accessibilitySupport": "off",
+  "editor.cursorBlinking": "phase",
+  "editor.cursorStyle": "block",
+  "editor.cursorWidth": 5,
+  "editor.detectIndentation": false,
+  "editor.fontSize": 18,
+  "editor.fontWeight": "400",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.letterSpacing": 0.5,
+  "editor.lineHeight": 25,
+  "editor.multiCursorModifier": "alt",
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [70, 80],
+  "editor.scrollBeyondLastLine": true,
+  "editor.showFoldingControls": "always",
+  "editor.snippetSuggestions": "top",
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 80,
+  "eslint.alwaysShowStatus": true,
+  "eslint.autoFixOnSave": true,
+  "files.associations": {
+    "*.html": "njk"
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "html.format.endWithNewline": true,
+  "html.format.extraLiners": "head, body, main, /html",
+  "html.format.indentInnerHtml": true,
+  "html.suggest.html5": true,
+  "javascript.validate.enable": false,
+  "markdownlint.config": {
+    "MD024": {
+      "siblings_only": true
+    }
+  },
+  "scss.validate": false,
+  "terminal.integrated.fontSize": 18
+}

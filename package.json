@@ -1,18 +1,8 @@
 {
-  "name": "nhsuk-prototype-kit",
-  "version": "3.0.6",
-  "description": "Rapidly create HTML prototypes of NHS websites and services.",
-  "main": "app.js",
-  "scripts": {
-    "build": "gulp build",
-    "postinstall": "npm run build",
-    "start": "node app.js",
-    "test": "",
-    "prewatch": "gulp build",
-    "watch": "gulp"
-  },
   "author": "https://github.com/nhsuk/",
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nhsuk/nhsuk-prototype-kit/issues"
+  },
   "dependencies": {
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
@@ -20,7 +10,13 @@
     "body-parser": "^1.19.0",
     "browser-sync": "^2.26.7",
     "client-sessions": "^0.8.0",
-    "dotenv": "^6.0.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-nhsuk": "^1.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-json": "^2.0.1",
+    "eslint-plugin-mocha": "^6.2.1",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "gulp": "^4.0.2",
@@ -30,11 +26,53 @@
     "gulp-nodemon": "^2.4.2",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
+    "htmlhint": "^0.11.0",
+    "husky": "^3.0.9",
     "keypather": "^3.0.0",
     "nhsuk-frontend": "^3.0.1",
     "node-sass": "^4.13.0",
     "nunjucks": "^3.2.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "sass-lint": "^1.12.1"
   },
-  "devDependencies": {}
+  "description": "Rapidly create HTML prototypes of NHS websites and services.",
+  "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint --staged",
+      "pre-push": "npm test"
+    }
+  },
+  "license": "MIT",
+  "main": "app.js",
+  "name": "nhsuk-prototype-kit",
+  "prettier": {
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "printWidth": 78,
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhsuk/nhsuk-prototype-kit.git"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "lint": "npm run lint:html && npm run lint:scss && npm run lint:js",
+    "lint:docs:html": "htmlhint --config ./tests/linters/.htmlhintrc ./docs/views/**/*.html",
+    "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./app/views/**/*.html",
+    "lint:js": "eslint -c ./tests/linters/.eslintrc.js --ignore-path ./tests/linters/.eslintignore --fix 'app/assets/javascript/**/*.js'",
+    "lint:scss": "pretty-quick && sass-lint -c ./tests/linters/.sass-lint.yml './app/assets/sass/**/*.scss' -v -q",
+    "postinstall": "npm run build",
+    "prewatch": "gulp build",
+    "start": "node app.js",
+    "test": "npm run lint",
+    "watch": "gulp"
+  },
+  "version": "3.0.6"
 }

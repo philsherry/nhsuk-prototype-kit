@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "eseom.nunjucks-template",
+    "github.vscode-pull-request-github",
+    "luwenjiechn.nunjucks-vscode-snippets",
+    "pkosta2005.heroku-command",
+    "ronnidc.nunjucks"
+  ]
+}
