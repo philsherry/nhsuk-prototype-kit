@@ -31,14 +31,13 @@ warningCallout with context %}
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="ie8" lang="en"><!
 [endif]-->[endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]-->
-<!--[if gt IE 9]><!-->
-<html lang="en" style="{{ html_style }}">
-  <!--<![endif]-->
+<!--[if gt IE 9]><!--><html
+  lang="en"
+  style="{{ html_style }}"
+><!--<![endif]-->
   <head>
     <meta charset="utf-8" />
-    <title>
-      {% block pageTitle %}NHS.UK prototype kit{% endblock %}
-    </title>
+    <title>{% block pageTitle %}NHS.UK prototype kit{% endblock %}</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
@@ -74,7 +73,6 @@ warningCallout with context %}
     {% endblock %}
 
     <script src="/nhsuk-frontend/nhsuk.min.js" defer="defer"></script>
-
     {% block headIcons %}
     <link
       rel="shortcut icon"
@@ -83,7 +81,7 @@ warningCallout with context %}
     />
     <link
       rel="apple-touch-icon"
-      href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180x180.png"
+      href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180xg"
     />
     <link
       rel="mask-icon"

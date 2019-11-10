@@ -64,7 +64,6 @@
   "scripts": {
     "build": "gulp build",
     "lint": "npm run lint:html && npm run lint:scss && npm run lint:js",
-    "lint:docs:html": "htmlhint --config ./tests/linters/.htmlhintrc ./docs/views/**/*.html",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./app/views/**/*.html",
     "lint:js": "eslint -c ./tests/linters/.eslintrc.js --ignore-path ./tests/linters/.eslintignore --fix 'app/assets/javascript/**/*.js'",
     "lint:scss": "pretty-quick && sass-lint -c ./tests/linters/.sass-lint.yml './app/assets/sass/**/*.scss' -v -q",
