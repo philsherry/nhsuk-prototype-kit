@@ -1,4 +1,4 @@
-module.exports = function (env) {
+module.exports = function(env) {
   /**
    * Instantiate object used to store the methods registered as a
    * 'filter' (of the same name) within nunjucks. You can override

@@ -21,7 +21,7 @@ function renderPath (path, res, next) {
       return
     }
     if (!error.message.startsWith('template not found')) { // [3] //
-      next(error) 
+      next(error)
       return
     }
     if (!path.endsWith('/index')) {

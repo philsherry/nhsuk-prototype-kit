@@ -1,7 +1,7 @@
 {
-  "author": "https://github.com/nhsuk/",
+  "author": "https://github.com/philsherry/",
   "bugs": {
-    "url": "https://github.com/nhsuk/nhsuk-prototype-kit/issues"
+    "url": "https://github.com/philsherry/nhsuk-prototype-kit/issues"
   },
   "dependencies": {
     "@babel/core": "^7.7.2",
@@ -35,7 +35,8 @@
     "path": "^0.12.7",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
-    "sass-lint": "^1.12.1"
+    "sass-lint": "^1.12.1",
+    "sass-lint-auto-fix": "^0.18.5"
   },
   "description": "Rapidly create HTML prototypes of NHS websites and services.",
   "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
@@ -59,14 +60,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nhsuk/nhsuk-prototype-kit.git"
+    "url": "git+https://github.com/philsherry/nhsuk-prototype-kit.git"
   },
   "scripts": {
     "build": "gulp build",
-    "lint": "npm run lint:html && npm run lint:scss && npm run lint:js",
+    "lint": "npm run lint:html && npm run lint:scss:fix && npm run lint:scss && npm run lint:js",
     "lint:html": "htmlhint --config ./tests/linters/.htmlhintrc ./app/views/**/*.html",
-    "lint:js": "eslint -c ./tests/linters/.eslintrc.js --ignore-path ./tests/linters/.eslintignore --fix 'app/assets/javascript/**/*.js'",
-    "lint:scss": "pretty-quick && sass-lint -c ./tests/linters/.sass-lint.yml './app/assets/sass/**/*.scss' -v -q",
+    "lint:js": "pretty-quick --pattern './app/assets/javascript/**/*.js' && eslint -c ./tests/linters/.eslintrc.js --ignore-path ./tests/linters/.eslintignore --fix 'app/assets/javascript/**/*.js'",
+    "lint:scss": "pretty-quick --pattern './app/assets/sass/**/*.scss' && sass-lint -c ./tests/linters/.sass-lint.yml './app/assets/sass/**/*.scss' -v -q",
+    "lint:scss:fix": "sass-lint-auto-fix --config ./tests/linters/.sass-lint-auto-fix.yml --config-sass-lint ./tests/linters/.sass-lint.yml ./app/assets/sass/**/*.scss",
     "postinstall": "npm run build",
     "prewatch": "gulp build",
     "start": "node app.js",

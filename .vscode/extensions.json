@@ -1,10 +1,18 @@
 {
   "recommendations": [
+    "2gua.rainbow-brackets",
+    "anweber.vscode-tidyhtml",
     "dbaeumer.vscode-eslint",
+    "douglaszaltron.nunjucks-vscode-extensionpack",
     "esbenp.prettier-vscode",
     "eseom.nunjucks-template",
     "github.vscode-pull-request-github",
+    "ivangabriele.vscode-heroku",
     "luwenjiechn.nunjucks-vscode-snippets",
+    "mkaufman.htmlhint",
+    "mrmlnc.vscode-attrs-sorter",
+    "oderwat.indent-rainbow",
+    "okitavera.vscode-nunjucks-formatter",
     "pkosta2005.heroku-command",
     "ronnidc.nunjucks"
   ]

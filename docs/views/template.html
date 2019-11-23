@@ -1,119 +1,74 @@
-{% from 'action-link/macro.njk' import actionLink with context %} {% from
-'back-link/macro.njk' import backLink with context %} {% from
-'breadcrumb/macro.njk' import breadcrumb with context %} {% from
-'button/macro.njk' import button with context %} {% from 'care-card/macro.njk'
-import careCard with context %} {% from 'checkboxes/macro.njk' import
-checkboxes with context %} {% from 'contents-list/macro.njk' import
-contentsList with context %} {% from 'date-input/macro.njk' import dateInput
-with context %} {% from 'details/macro.njk' import details with context %} {%
-from 'do-dont-list/macro.njk' import list with context %} {% from
-'error-message/macro.njk' import errorMessage with context %} {% from
-'error-summary/macro.njk' import errorSummary with context %} {% from
-'fieldset/macro.njk' import fieldset with context %} {% from
-'footer/macro.njk' import footer with context %} {% from 'header/macro.njk'
-import header with context %} {% from 'hero/macro.njk' import hero with
-context %} {% from 'hint/macro.njk' import hint with context %} {% from
-'images/macro.njk' import image with context %} {% from 'input/macro.njk'
-import input with context %} {% from 'inset-text/macro.njk' import insetText
-with context %} {% from 'label/macro.njk' import label with context %} {% from
-'list-panel/macro.njk' import listPanel with context %} {% from
-'nav-a-z/macro.njk' import azNav with context %} {% from
-'pagination/macro.njk' import pagination with context %} {% from
-'panel/macro.njk' import panel with context %} {% from 'promo/macro.njk'
-import promo with context %} {% from 'radios/macro.njk' import radios with
-context %} {% from 'review-date/macro.njk' import reviewDate with context %}
-{% from 'select/macro.njk' import select with context %} {% from
-'skip-link/macro.njk' import skipLink with context %} {% from
-'summary-list/macro.njk' import summaryList with context %} {% from
-'tables/macro.njk' import table with context %} {% from 'textarea/macro.njk'
-import textarea with context %} {% from 'warning-callout/macro.njk' import
-warningCallout with context %}
+{% from 'action-link/macro.njk' import actionLink with context %}
+{% from 'back-link/macro.njk' import backLink with context %}
+{% from 'breadcrumb/macro.njk' import breadcrumb with context %}
+{% from 'button/macro.njk' import button with context %}
+{% from 'care-card/macro.njk' import careCard with context %}
+{% from 'checkboxes/macro.njk' import checkboxes with context %}
+{% from 'contents-list/macro.njk' import contentsList with context %}
+{% from 'date-input/macro.njk' import dateInput with context %}
+{% from 'details/macro.njk' import details with context %}
+{% from 'do-dont-list/macro.njk' import list with context %}
+{% from 'error-message/macro.njk' import errorMessage with context %}
+{% from 'error-summary/macro.njk' import errorSummary with context %}
+{% from 'fieldset/macro.njk' import fieldset with context %}
+{% from 'footer/macro.njk' import footer with context %}
+{% from 'header/macro.njk' import header with context %}
+{% from 'hero/macro.njk' import hero with context %}
+{% from 'hint/macro.njk' import hint with context %}
+{% from 'images/macro.njk' import image with context %}
+{% from 'input/macro.njk' import input with context %}
+{% from 'inset-text/macro.njk' import insetText with context %}
+{% from 'label/macro.njk' import label with context %}
+{% from 'list-panel/macro.njk' import listPanel with context %}
+{% from 'nav-a-z/macro.njk' import azNav with context %}
+{% from 'pagination/macro.njk' import pagination with context %}
+{% from 'panel/macro.njk' import panel with context %}
+{% from 'promo/macro.njk' import promo with context %}
+{% from 'radios/macro.njk' import radios with context %}
+{% from 'review-date/macro.njk' import reviewDate with context %}
+{% from 'select/macro.njk' import select with context %}
+{% from 'skip-link/macro.njk' import skipLink with context %}
+{% from 'summary-list/macro.njk' import summaryList with context %}
+{% from 'tables/macro.njk' import table with context %}
+{% from 'textarea/macro.njk' import textarea with context %}
+{% from 'warning-callout/macro.njk' import warningCallout with context %}
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="ie8" lang="en"><!
-[endif]-->[endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]-->
-<!--[if gt IE 9]><!--><html
-  lang="en"
-  style="{{ html_style }}"
-><!--<![endif]-->
+<!--[if lt IE 9]><html class="ie8" lang="en"><! [endif]-->[endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en" style="{{ html_style }}">
+  <!--<![endif]-->
   <head>
-    <meta charset="utf-8" />
-    <title>{% block pageTitle %}NHS.UK prototype kit{% endblock %}</title>
+    <meta charset="utf-8"/>
+    <title>
+      {% block pageTitle %}NHS.UK prototype kit{% endblock %}
+    </title>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
 
-    <link href="https://www.nhs.uk/" rel="preconnect" />
-    <link
-      href="https://assets.nhs.uk/"
-      rel="preconnect"
-      crossorigin="crossorigin"
-    />
+    <link href="https://www.nhs.uk/" rel="preconnect"/>
+    <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin="crossorigin"/>
 
-    <link
-      type="font/woff2"
-      href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2"
-      rel="preload"
-      as="font"
-      crossorigin="crossorigin"
-    />
-    <link
-      type="font/woff2"
-      href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2"
-      rel="preload"
-      as="font"
-      crossorigin="crossorigin"
-    />
+    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin="crossorigin"/>
+    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin="crossorigin"/>
 
     {% block headCSS %}
-    <link href="/css/main.css" rel="stylesheet" />
+      <link href="/css/main.css" rel="stylesheet"/>
     {% endblock %}
 
     <script src="/nhsuk-frontend/nhsuk.min.js" defer="defer"></script>
     {% block headIcons %}
-    <link
-      rel="shortcut icon"
-      href="/nhsuk-frontend/assets/favicons/favicon.ico"
-      type="image/x-icon"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180xg"
-    />
-    <link
-      rel="mask-icon"
-      href="/nhsuk-frontend/assets/favicons/favicon.svg"
-      color="#005eb8"
-    />
-    <link
-      rel="icon"
-      sizes="192x192"
-      href="/nhsuk-frontend/assets/favicons/favicon-192x192.png"
-    />
-    <meta
-      name="msapplication-TileImage"
-      content="/nhsuk-frontend/assets/favicons/mediumtile-144x144.png"
-    />
-    <meta name="msapplication-TileColor" content="#005eb8" />
-    <meta
-      name="msapplication-square70x70logo"
-      content="/nhsuk-frontend/assets/favicons/smalltile-70x70.png"
-    />
-    <meta
-      name="msapplication-square150x150logo"
-      content="/nhsuk-frontend/assets/favicons/mediumtile-150x150.png"
-    />
-    <meta
-      name="msapplication-wide310x150logo"
-      content="/nhsuk-frontend/assets/favicons/widetile-310x150.png"
-    />
-    <meta
-      name="msapplication-square310x310logo"
-      content="/nhsuk-frontend/assets/favicons/largetile-310x310.png"
-    />
+      <link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico" type="image/x-icon"/>
+      <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180xg"/>
+      <link rel="mask-icon" href="/nhsuk-frontend/assets/favicons/favicon.svg" color="#005eb8"/>
+      <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicons/favicon-192x192.png"/>
+      <meta name="msapplication-TileImage" content="/nhsuk-frontend/assets/favicons/mediumtile-144x144.png"/>
+      <meta name="msapplication-TileColor" content="#005eb8"/>
+      <meta name="msapplication-square70x70logo" content="/nhsuk-frontend/assets/favicons/smalltile-70x70.png"/>
+      <meta name="msapplication-square150x150logo" content="/nhsuk-frontend/assets/favicons/mediumtile-150x150.png"/>
+      <meta name="msapplication-wide310x150logo" content="/nhsuk-frontend/assets/favicons/widetile-310x150.png"/>
+      <meta name="msapplication-square310x310logo" content="/nhsuk-frontend/assets/favicons/largetile-310x310.png"/>
     {% endblock %}
   </head>
 
@@ -123,20 +78,25 @@ warningCallout with context %}
         ? document.body.className + ' js-enabled'
         : 'js-enabled'
     </script>
-    {% block bodyStart %}{% endblock %} {% block skipLink %} {{ skipLink({
-    href: '#maincontent', text: 'Skip to main content' }) }} {% endblock %} {%
-    block header %} {{ header({}) }} {% endblock %} {% block beforeContent
-    %}{% endblock %} {% block main %}
-    <div class="nhsuk-width-container {{ containerClasses }}">
-      <main
-        class="nhsuk-main-wrapper {{ mainClasses }}"
-        id="maincontent"
-        role="main"
-      >
-        {% block content %}{% endblock %}
-      </main>
-    </div>
-    {% endblock %} {% block footer %} {{ footer({ "showLogo": "false" })}} {%
-    endblock %} {% block bodyEnd %}{% endblock %}
+    {% block bodyStart %}{% endblock %}
+    {% block skipLink %}
+      {{ skipLink({
+    href: '#maincontent', text: 'Skip to main content' }) }}
+    {% endblock %}
+    {% block header %}
+      {{ header({}) }}
+    {% endblock %}
+    {% block beforeContent %}{% endblock %}
+    {% block main %}
+      <div class="nhsuk-width-container {{ containerClasses }}">
+        <main class="nhsuk-main-wrapper {{ mainClasses }}" id="maincontent" role="main">
+          {% block content %}{% endblock %}
+        </main>
+      </div>
+    {% endblock %}
+    {% block footer %}
+      {{ footer({ "showLogo": "false" })}}
+    {% endblock %}
+    {% block bodyEnd %}{% endblock %}
   </body>
 </html>
