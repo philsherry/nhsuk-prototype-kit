@@ -1,0 +1,16 @@
+messages__common__app__heading=NHS.UK prototype kit
+
+messages__index__lede=This kit lets you rapidly create HTML prototypes of NHS services.
+messages__index__heading__two=About this page
+messages__index__p1=Use this page as the index for your project.
+messages__index__p2=You’ll find the code for this page at
+messages__index__p3_1=There is also an
+messages__index__p3__link=example page
+messages__index__p3_2=which contains a selection of NHS.UK frontend styles and components.
+messages__index__heading__three=Documentation
+messages__index__p4_1=Get started with
+messages__index__p4__link=how to guides and page templates
+messages__index__p5_1=Copy and paste styles and components from the
+messages__index__p5__link=NHS digital service manual
+
+messages__admin__pages__heading__one=Page list

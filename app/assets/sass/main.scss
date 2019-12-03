@@ -5,6 +5,13 @@
 @import 'components/panel-confirmation';
 @import 'components/related-nav';
 
+.not-current-sprint {
+  background: #ffd400;
+  color: #000;
+  padding: 5px;
+  text-align: center;
+}
+
 ///////////////////////////////////////////
-// Add your custom CSS/Sass styles below... 
+// Add your custom CSS/Sass styles below...
 ///////////////////////////////////////////

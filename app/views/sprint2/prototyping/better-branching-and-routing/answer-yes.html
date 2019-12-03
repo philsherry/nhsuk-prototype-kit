@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+{% block pageTitle %}
+  Yes - Branching - Example
+{% endblock %}
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        You answered yes
+      </h1>
+
+      <p>
+        You know your NHS number.
+      </p>
+
+      {{ backLink({
+        "href": "/examples/branching",
+        "text": "Back to How to do branching"
+      }) }}
+    </div>
+  </div>
+{% endblock %}

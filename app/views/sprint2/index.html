@@ -1,0 +1,81 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  {{ messages__common__app__heading }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Change the page title here -->
+      <h1>
+        {{ messages__common__app__heading }}
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">Version
+          {{version}}</span>
+      </h1>
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://beta.nhs.uk/service-manual/styles-components-patterns -->
+
+      <p class="nhsuk-lede-text">
+        {{ messages__index__lede }}
+      </p>
+
+      <hr/>
+
+      <h2>
+        {{ messages__index__heading__two }}
+      </h2>
+
+      <p>
+        {{ messages__index__p1 }}
+      </p>
+
+      <p>
+        {{ messages__index__p2 }}
+        <strong>
+          <code>/app/views/index.html</code>
+        </strong>.
+      </p>
+
+      <p>
+        {{ messages__index__p3_1 }}
+        <a href="/page-example">{{ messages__index__p3__link }}</a>
+        {{ messages__index__p3_2 }}
+      </p>
+
+      <hr/>
+
+      <h2>
+        {{ messages__index__heading__three }}
+      </h2>
+
+      <ul>
+        <li>
+          {{ messages__index__p4_1 }}
+          <a href="/docs">{{ messages__index__p4__link }}</a>
+        </li>
+        <li>
+          {{ messages__index__p5_1 }}
+          <a href="https://beta.nhs.uk/service-manual/styles-components-patterns">{{ messages__index__p5__link }}</a>
+        </li>
+      </ul>
+
+      <!-- End of content -->
+
+    </div>
+  </div>
+{% endblock %}

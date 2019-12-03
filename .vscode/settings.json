@@ -39,7 +39,7 @@
   "editor.cursorStyle": "block",
   "editor.cursorWidth": 5,
   "editor.detectIndentation": false,
-  "editor.fontSize": 18,
+  "editor.fontSize": 20,
   "editor.fontWeight": "400",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -47,7 +47,10 @@
   "editor.lineHeight": 25,
   "editor.multiCursorModifier": "alt",
   "editor.renderWhitespace": "all",
-  "editor.rulers": [70, 80],
+  "editor.rulers": [
+    70,
+    80
+  ],
   "editor.scrollBeyondLastLine": true,
   "editor.showFoldingControls": "always",
   "editor.snippetSuggestions": "top",

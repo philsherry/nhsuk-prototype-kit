@@ -1,0 +1,312 @@
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  {{ messages__admin__pages__heading__one }}
+  -
+  {{ messages__common__app__heading }}
+{% endblock %}
+
+{% block headCSS %}
+  <style>
+    .link-back + .page-header {
+      margin-top: 0;
+    }
+
+    .page--playlist::after {
+      background: url("/images/admin/arrow.svg") center no-repeat;
+      background-size: 15px 15px;
+      content: '';
+      display: inline-block;
+      height: 15px;
+      position: absolute;
+      right: -16px;
+      top: 60%;
+      width: 15px;
+    }
+
+    .page:last-child::after {
+      display: none;
+    }
+
+    .page-playlist--withroute {
+      transform: translateX(20px);
+    }
+
+    .page-playlist--childroute {
+      transform: translateX(50px);
+    }
+
+    .page--route-heading::before {
+      background: url("/images/admin/arrow.svg") 0 66% no-repeat;
+      background-size: 15px 15px;
+      border-left: 5px solid #000;
+      content: '';
+      display: inline-block;
+      height: 330px;
+      left: -30px;
+      position: absolute;
+      top: 0;
+      width: 20px;
+    }
+
+    .page--route-ending {
+      clear: both;
+      display: block;
+    }
+
+    .page--route-ending::after,
+    .page--route-ending::before {
+      content: '';
+      display: table;
+    }
+
+    .page--route-ending::after {
+      clear: both;
+    }
+
+    .page-inner {
+      background: #fff url("/images/admin/loader.svg") 50% no-repeat;
+      border: 1px solid #000;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .page--exit .page-inner {
+      background: none;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
+    .page--exit {
+      background: #005ea5;
+      color: #fff;
+      height: 100%;
+    }
+
+    iframe {
+      background: none;
+      border: 0;
+      height: 600px;
+      transform-origin: 0 0;
+      transform: scale(0.33333);
+      width: 300%;
+    }
+
+    .page-width-wrapper {
+      margin-top: 3em;
+      position: relative;
+      width: 250px;
+    }
+
+    #page-width {
+      width: 100%;
+    }
+
+    #page-width::after {
+      background: url("/images/admin/desktop.svg") 50% no-repeat;
+      content: '';
+      display: inline-block;
+      height: 30px;
+      width: 30px;
+    }
+
+    #page-width[data-device='desktop']::after {
+      background-image: url("/images/admin/desktop.svg");
+    }
+
+    #page-width[data-device='tablet']::after {
+      background-image: url("/images/admin/tablet.svg");
+    }
+
+    #page-width[data-device='mobile']::after {
+      background-image: url("/images/admin/mobile.svg");
+    }
+
+    input[type='range'] {
+      display: inline-block;
+      margin: 0;
+      width: calc(100% - 40px);
+    }
+
+    input[type='range']::-moz-range-track {
+      height: 1px;
+    }
+
+    input[type='range']::-moz-range-thumb {
+      background: #ccc;
+      border: 1px solid #aaa;
+      height: 12px;
+      width: 12px;
+    }
+
+    output {
+      font-size: 0.8em;
+      opacity: 0.8;
+      position: absolute;
+      right: 0;
+      top: 0.25em;
+    }
+
+    output::after {
+      content: 'px';
+    }
+
+    .non-playlisted {
+      background: #d3d3d3;
+      margin: 0 -1em;
+      padding: 2em 1em;
+    }
+
+    .non-playlisted::before {
+      content: 'Pages not added to playlist';
+      display: block;
+      padding-bottom: 1em;
+    }
+  </style>
+{% endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+<!-- More info and code for the breadcrumb can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/breadcrumbs -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/",
+    text: "Home"
+  }) }}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+  <style>
+    :root {
+      --page-width: 300px;
+    }
+
+    .page {
+      display: inline-block;
+      margin: 0 15px 20px 0;
+      position: relative;
+      width: var(--page-width);
+    }
+  </style>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+      <h1>{{ title }}</h1>
+    </div>
+    <div class="nhsuk-grid-column-one-quarter device-size">
+      <form onsubmit="return false" oninput="width.value = pageWidth.valueAsNumber * 3">
+        <div class="form-group page-width-wrapper">
+          <label for="pageWidth">Change device size</label>
+          <div id="page-width">
+            <input class="nhsuk-input" id="pageWidth" name="pageWidth" type="range" min="110" max="300" value="300"/>
+            <output for="pageWidth" name="width">900</output>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"/>
+
+      <div class="nhsuk-grid-column-three-quarters playlisted">
+        {% for play in playlist %}
+          {% for page in pages %}
+            {#
+                check if this page is in the playlist; if it isn't
+                then we'll show it in a seperate list under this one
+              #}
+            {% set playKey = play.view + ".html" %}
+            {% set pageKey = page | getpage(playlistDir) %}
+            {% if playKey == pageKey %}
+              {% if play.routeStart %}
+                <div class="page--route-heading{% if play.route %} page-playlist--withroute{% endif %} {% if play.childRoute %} page-playlist--childroute{% endif %}">
+                  <h3 class="nhsuk-heading-s">{{ play.route }}</h3>
+                </div>
+              {% endif %}
+              <div class="page page--playlist {% if play.route %} page-playlist--withroute{% endif %} {% if play.childRoute %} page-playlist--childroute{% endif %}">
+                <a href="../{{ page | replace('.html', '') }}">/{{ page | replace('.html', '') }}</a>
+                <div class="page-inner">
+                  <iframe src="../{{ page }}"></iframe>
+                </div>
+              </div>
+              {% if play.routeEnd %}
+                <div class="page--route-ending">&nbsp;</div>
+              {% endif %}
+
+              {# show jump off to another playlist #}
+              {% if play.exitTo %}
+                <div class="page page--playlist page--exit">
+                  <div class="page-inner">
+                    {{ play.exitTo }}
+                  </div>
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+      <div class="nhsuk-grid-column-three-quarters non-playlisted">
+        {# show pages which haven't been added to the playlist #}
+        {% for page in pages %}
+          {% set hasKey = false %}
+          {% for play in playlist %}
+            {% set playKey = play.view + ".html" %}
+            {% set pageKey = page | getpage(playlistDir) %}
+            {% if playKey == pageKey %}
+              {% set hasKey = true %}
+            {% endif %}
+          {% endfor %}
+          {% if hasKey == false %}
+            <div class="page">
+              <h3 class="nhsuk-heading-s">
+                <a href="../{{ page | replace('.html', '') }}">/{{ page | replace('.html', '') }}</a>
+              </h3>
+              <div class="page-inner">
+                <iframe src="../{{ page }}"></iframe>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block bodyEnd %}
+  <script>
+    const pages = []
+      .slice
+      .call(document.querySelectorAll('.page'));
+    const deviceWidth = document.querySelector('input[type="range"]');
+    const pageWidth = document.getElementById('page-width');
+
+    deviceWidth.addEventListener('change', handleUpdate);
+    deviceWidth.addEventListener('mousemove', handleUpdate);
+
+    function handleUpdate(e) {
+      pages.forEach(page => page.style.setProperty('--page-width', this.value + 'px'))
+      if (this.value < 150) {
+        pageWidth.setAttribute('data-device', 'mobile')
+      }
+      if (this.value > 150) {
+        pageWidth.setAttribute('data-device', 'tablet')
+      }
+      if (this.value >= 212) {
+        pageWidth.setAttribute('data-device', 'desktop')
+      }
+    }
+
+    if (document.querySelectorAll('.non-playlisted .page').length == 0) {
+      var np = document.querySelector('.non-playlisted')
+      np
+        .classList
+        .add('visually-hidden');
+    }
+  </script>
+{% endblock %}

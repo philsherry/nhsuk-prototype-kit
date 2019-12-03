@@ -1,0 +1,174 @@
+// Styles for the playlists in Admin.
+
+.link-back + .page-header {
+  margin-top: 0;
+}
+
+:root {
+  --page-width: 300px;
+}
+
+.page {
+  display: inline-block;
+  margin: 0 15px 20px 0;
+  position: relative;
+  width: var(--page-width);
+}
+
+.page--playlist::after {
+  background: url('/images/admin/arrow.svg') 0 0 no-repeat;
+  background-size: 15px 15px;
+  content: '';
+  display: inline-block;
+  height: 15px;
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  width: 15px;
+}
+
+.page:last-child::after {
+  display: none;
+}
+
+.page-playlist--withroute {
+  transform: translateX(20px);
+}
+
+.page-playlist--childroute {
+  transform: translateX(50px);
+}
+
+.page--route-heading::before {
+  background: url('/images/admin/arrow.svg') 0 66% no-repeat;
+  background-size: 15px 15px;
+  border-left: 5px solid;
+  content: '';
+  display: inline-block;
+  height: 300px;
+  left: -30px;
+  position: absolute;
+  top: 0;
+  width: 15px;
+}
+
+.page--route-ending {
+  clear: both;
+  display: block;
+}
+
+.page--route-ending::after,
+.page--route-ending::before {
+  content: '';
+  display: table;
+}
+
+.page--route-ending::after {
+  clear: both;
+}
+
+.page h2 {
+  font-size: 0.8em;
+  line-height: 1.1;
+  padding-bottom: 5px;
+  word-break: break-word;
+}
+
+.page-inner {
+  background: #fff url('/images/admin/loader.svg') 50% no-repeat;
+  border: 1px solid #000;
+  height: 200px;
+  overflow: hidden;
+}
+
+.page--exit .page-inner {
+  background: none;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.page--exit {
+  background: #005ea5;
+  color: #fff;
+  height: 100%;
+}
+
+iframe {
+  background: none;
+  border: 0;
+  height: 600px;
+  transform-origin: 0 0;
+  transform: scale(0.33333);
+  width: 300%;
+}
+
+.page-width-wrapper {
+  margin-top: 3em;
+  position: relative;
+  width: 250px;
+}
+
+#page-width {
+  width: 100%;
+}
+
+#page-width::after {
+  background: url('/images/admin/desktop.svg') 50% no-repeat;
+  content: '';
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+
+#page-width[data-device='desktop']::after {
+  background-image: url('/images/admin/desktop.svg');
+}
+
+#page-width[data-device='tablet']::after {
+  background-image: url('/images/admin/tablet.svg');
+}
+
+#page-width[data-device='mobile']::after {
+  background-image: url('/images/admin/mobile.svg');
+}
+
+input[type='range'] {
+  display: inline-block;
+  margin: 0;
+  width: calc(100% - 40px);
+}
+
+input[type='range']::-moz-range-track {
+  height: 1px;
+}
+
+input[type='range']::-moz-range-thumb {
+  background: #ccc;
+  border: 1px solid #aaa;
+  height: 12px;
+  width: 12px;
+}
+
+output {
+  font-size: 0.8em;
+  opacity: 0.8;
+  position: absolute;
+  right: 0;
+  top: 0.25em;
+}
+
+output::after {
+  content: 'px';
+}
+
+.non-playlisted {
+  background: #d3d3d3;
+  margin: 0 -1em;
+  padding: 2em 1em;
+}
+
+.non-playlisted::before {
+  content: 'Pages not added to playlist';
+  display: block;
+  padding-bottom: 1em;
+}

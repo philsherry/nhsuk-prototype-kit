@@ -2,6 +2,8 @@
 
 <!-- Extends the layout from /docs/views/template.html -->
 {% extends "template.html" %}
+{% from "macros/nhsuk-details-changelog/macro.njk" import detailsChangelog with context %}
+{% from "macros/nhsuk-next-page/macro.njk" import nextPage with context %}
 
 <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 {% block headCSS %}

@@ -38,6 +38,20 @@ module.exports = function(env) {
 
   ------------------------------------------------------------------ */
 
+  filters.messages = function(str, ...opts) {
+    // injects copy into a message string, works with as many params as sent
+    opts.forEach(function(opt, i) {
+      str = str.replace('{' + i + '}', opt)
+    })
+    return str
+  }
+
+  filters.getpage = function(str, dir) {
+    return str.replace(dir, '')
+  }
+
+  filters.md = require('nunjucks-markdown-filter')
+
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */
