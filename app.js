@@ -53,9 +53,8 @@ var appViews = [
 
 var nunjucksConfig = {
   autoescape: true,
+  express: app
 }
-
-nunjucksConfig.express = app
 
 var nunjucksAppEnv = nunjucks.configure(appViews, nunjucksConfig)
 nunjucksAppEnv.addGlobal('version', packageInfo.version)
@@ -241,6 +240,20 @@ if (useDocumentation || onlyDocumentation == 'true') {
 app.post('/examples/passing-data/clear-data', function(req, res) {
   req.session.data = {}
   res.render('examples/passing-data/clear-data-success')
+})
+
+// Strip .html and .htm if provided
+app.get(/\.html?$/i, function (req, res) {
+  var path = req.path
+  var parts = path.split('.')
+  parts.pop()
+  path = parts.join('.')
+  res.redirect(path)
+})
+
+// App folder routes get priority
+app.get(/^\/([^.]+)$/, function (req, res) {
+  utils.matchRoutes(req, res)
 })
 
 // Redirect all POSTs to GETs - this allows users to use POST for autoStoreData

@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  {{ messages__section_one__page_title }}
+  -
+  {{ messages__section_one__heading_one }}
+{% endblock %}
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [{
+      href: "/docs",
+      text: "Home"
+    }],
+    href: "/docs/how-tos",
+    text: "How to guides"
+  }) }}
+{% endblock %}
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+      <form method="post">
+        {% call fieldset({
+          legend: {
+            classes: "nhsuk-fieldset__legend--l",
+            isPageHeading: true,
+            text: messages__section_one__heading_one
+          }
+        }) %}
+        {{
+          prototypingRadios({
+          "idPrefix": "better-branching-and-routing-macro",
+          "items": [{
+            redirectIfSelected: 'answer-yes',
+            "text": messages__common__answers__yes,
+            "value": messages__common__answers__yes
+          }, {
+            redirectIfSelected: 'answer-no',
+            "text": messages__common__answers__no,
+            "value": messages__common__answers__no
+          }, {
+            redirectIfSelected: 'answer-maybe',
+            "text": messages__common__answers__maybe,
+            "value": messages__common__answers__maybe
+          }, {
+            redirectIfSelected: 'answer-who-cares',
+            "text": messages__common__answers__who_cares,
+            "value": messages__common__answers__who_cares
+          }],
+          "name": "better-branching-and-routing-macro"
+        }) }}
+        {% endcall %}
+        {{ button({ "text": messages__common__actions__continue }) }}
+      </form>
+
+      <hr/>
+
+      <form method="post">
+        <fieldset class="nhsuk-fieldset">
+
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">
+              Better branching and routing
+            </h2>
+          </legend>
+
+          <div class="nhsuk-form-group">
+
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="better-branching-and-routing-1" name="better-branching-and-routing" type="radio" value="Yes, redirect(/sprint2/better-branching-and-routing/answer-yes)">
+                <label class="nhsuk-label nhsuk-radios__label" for="better-branching-and-routing-1">
+                  Yes
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="better-branching-and-routing-2" name="better-branching-and-routing" type="radio" value="No, redirect(/sprint2/better-branching-and-routing/answer-no)">
+                <label class="nhsuk-label nhsuk-radios__label" for="better-branching-and-routing-2">
+                  No
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="better-branching-and-routing-3" name="better-branching-and-routing" type="radio" value="Maybe, redirect(/sprint2/better-branching-and-routing/answer-maybe)">
+                <label class="nhsuk-label nhsuk-radios__label" for="better-branching-and-routing-3">
+                  Maybe
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="better-branching-and-routing-4" name="better-branching-and-routing" type="radio" value="Who cares, redirect(/sprint2/better-branching-and-routing/answer-who-cares)">
+                <label class="nhsuk-label nhsuk-radios__label" for="better-branching-and-routing-4">
+                  Who cares
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+
+        <button class="nhsuk-button" type="submit">
+          Continue
+        </button>
+
+      </form>
+
+      {{ backLink({
+        "href": "/docs/how-tos",
+        "text": "Back to How to guides"
+      })
+    }}
+    </div>
+  </div>
+{% endblock %}

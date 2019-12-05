@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 const config = require('../../../config')
 
-let sprintName = 'sprint2'
+const sprintName = 'sprint2'
 
 function checkSprint(res) {
   res.locals['isCurrentSprint'] = true
@@ -73,24 +73,7 @@ router.get('/admin/pages', function(req, res) {
   })
 })
 
-const playlistPrototyping = require('./playlists/prototyping')
 const playlistBranchingAndRouting = require('./playlists/better-branching-and-routing')
-
-router.get('/admin/prototyping', function(req, res) {
-  checkSprint(res)
-  getMessages(res)
-  var list = getFileList(
-    './app/views/' + sprintName + '/' + playlistPrototyping.directory,
-    null,
-    true
-  )
-  res.render(sprintName + '/_admin/pages', {
-    pages: list,
-    playlist: playlistPrototyping.playlist,
-    playlistDir: playlistPrototyping.directory + '/',
-    title: 'Prototyping'
-  })
-})
 
 router.get('/admin/better-branching-and-routing', function(req, res) {
   checkSprint(res)
@@ -112,27 +95,12 @@ router.get('/admin/better-branching-and-routing', function(req, res) {
 router.get('*', function(req, res, next) {
   checkSprint(res)
   getMessages(res)
-  // handle state views on a page
-  var state = req.query.state
-
-  // handles custom errors - these can be set using the session variable customErrors before redirecting back to an input screen
-  // uses pathname rather than req.url to avoid issues with querystrings
-  if (req.session.data['customErrors']) {
-    var errors = req.session.data['customErrors']
-    req.session.data['customErrors'] = null
-    res.render(sprintName + req._parsedUrl.pathname, {
-      errors: errors,
-      state: state,
-    })
-  } else {
-    res.render(sprintName + req._parsedUrl.pathname, {
-      state: state,
-    })
-  }
+  next()
 })
 
+
 // GENERIC NEXT PAGE ELEMENT
-router.post('*', function(req, res, next) {
+router.post('*', function (req, res, next) {
   // console.log('main routes')
   if (req.body['next-page']) {
     res.redirect(req.body['next-page'])
@@ -148,4 +116,4 @@ router.post('*', function(req, res, next) {
   }
 })
 
-module.exports = router
+module.exports = router;

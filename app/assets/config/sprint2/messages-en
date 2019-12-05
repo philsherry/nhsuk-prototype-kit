@@ -1,4 +1,13 @@
 messages__common__app__heading=NHS.UK prototype kit
+messages__common__demo__heading=Prototyping
+
+messages__common__actions__continue=Continue
+messages__common__actions__cancel=Cancel
+
+messages__common__answers__yes=Yes
+messages__common__answers__no=No
+messages__common__answers__maybe=Maybe
+messages__common__answers__who_cares=Who cares
 
 messages__index__lede=This kit lets you rapidly create HTML prototypes of NHS services.
 messages__index__heading__two=About this page
@@ -14,3 +23,19 @@ messages__index__p5_1=Copy and paste styles and components from the
 messages__index__p5__link=NHS digital service manual
 
 messages__admin__pages__heading__one=Page list
+
+# Section 1: Better branching and routing
+messages__section_one__page_title=Do you know your NHS number?
+messages__section_one__heading_one=Better branching and routing
+
+# Section 2: Organise your sprints
+messages__section_two__page_title=
+messages__section_two__heading_one=Organise your sprints
+
+# Section 3: Use Message files
+messages__section_three__page_title=
+messages__section_three__heading_one=Use Message files
+
+# Section 4: Wrangle user data
+messages__section_four__page_title=
+messages__section_four__heading_one=Wrangle user data

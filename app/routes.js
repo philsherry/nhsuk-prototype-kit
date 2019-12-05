@@ -30,16 +30,13 @@ function getSprintChangelogs(dir, filelist) {
   return filelist
 }
 
-// Route index page
+// Sprint index page: this is your main index page, really.
 router.get('/', function(req, res) {
-  res.render('index')
-})
-
-router.get('/sprintindex', function(req, res) {
   var changelogs = getSprintChangelogs('./app/assets/config')
-  res.render('sprintindex', { changelog: changelogs })
+  res.render('index', { changelog: changelogs })
 })
 
+// Re-route all the `current` URLs to the right places.
 router.get('/current/*', function(req, res, next) {
   var r = req.url.replace('/current/', '/' + config.currentSprint + '/')
   res.redirect(r)
@@ -47,12 +44,11 @@ router.get('/current/*', function(req, res, next) {
 
 /* catch-all routes */
 router.get('*', function(req, res, next) {
-  getMessages(res)
+  next()
 })
 
 // GENERIC NEXT PAGE ELEMENT
 router.post('*', function(req, res, next) {
-  // console.log('main routes')
   if (req.body['next-page']) {
     res.redirect(req.body['next-page'])
   } else if (req.body) {

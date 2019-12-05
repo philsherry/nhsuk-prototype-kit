@@ -1,15 +1,12 @@
 {
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[njk]": {
     "editor.defaultFormatter": "eseom.nunjucks-template"
@@ -65,11 +62,12 @@
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "html.format.enable": true,
   "html.format.endWithNewline": true,
   "html.format.extraLiners": "head, body, main, /html",
   "html.format.indentInnerHtml": true,
   "html.suggest.html5": true,
-  "htmlhint.enable": true,
+  "htmlhint.enable": false,
   "htmlhint.options": {
     "alt-require": true,
     "attr-lowercase": [
@@ -114,6 +112,7 @@
       "preserveAlpha",
       "preserveAspectRatio",
       "primitiveUnits",
+      "redirectIfSelected",
       "refX",
       "refY",
       "repeatCount",
@@ -136,7 +135,7 @@
       "viewTarget",
       "xChannelSelector",
       "yChannelSelector",
-      "zoomAndPan"
+      "zoomAndPan",
     ],
     "attr-no-duplication": true,
     "attr-unsafe-chars": true,
@@ -163,7 +162,8 @@
   "markdownlint.config": {
     "MD024": {
       "siblings_only": true
-    }
+    },
+    "MD041": false
   },
   "scss.validate": false,
   "terminal.integrated.fontSize": 18,

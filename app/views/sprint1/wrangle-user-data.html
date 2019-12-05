@@ -1,0 +1,70 @@
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- In /views/layout.html you can: - change the header and footer - add custom CSS and JavaScript -->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Wrangle user data - NHS.UK prototype kit
+{% endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+<!-- More info and code for the breadcrumb can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/breadcrumbs -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/",
+    text: "Home"
+  }) }}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Change the page title here -->
+      <h1>
+        Wrangle user data
+      </h1>
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://beta.nhs.uk/service-manual/styles-components-patterns -->
+      <p class="nhsuk-lede-text">
+        A few examples of how to manipulate user data, save it, and then play it back.
+      </p>
+
+      {% set inlineData = 'cats are the best.' %}
+      <p>{{ inlineData | replace("the best", "better than dogs") | title }}</p>
+
+      <form method="post">
+        {# <input class="nhsuk-input" name="first-name" value="{{ data['first-name'] }}"/> #}
+        {{ input({
+          "label": {
+            "text": "First name"
+          },
+          "id": "first-name",
+          "name": "first-name"
+        }) }}
+
+        <textarea class="nhsuk-textarea" name="cat-value" value="{{ data['cat-value'] | striptags(true) | escape | nl2br }}" rows="6">{{ data['cat-value'] }}</textarea>
+        {{ prototypingNextPage({
+          "next": "/sprintindex",
+          "text": "Post-it®"
+        }) }}
+      </form>
+
+      <div>
+        <h3>Cats are better than dogs.</h3>
+        <p>name:
+          {{ data['first-name'] }}</p>
+        <pre><code>{{ data['cat-value'] }}</code></pre>
+      </div>
+
+      <!-- End of content -->
+
+    </div>
+
+  </div>
+{% endblock %}

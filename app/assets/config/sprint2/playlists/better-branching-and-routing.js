@@ -1,5 +1,5 @@
 module.exports = {
-  directory: 'prototyping/better-branching-and-routing',
+  directory: 'better-branching-and-routing',
   playlist: [
     {
       route: 'Do you know your NHS number: yes',
@@ -40,6 +40,6 @@ module.exports = {
       route: 'Do you know your NHS number: who cares',
       routeEnd: true,
       view: 'answer-who-cares',
-    },
-  ],
+    }
+  ]
 }

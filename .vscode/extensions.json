@@ -2,18 +2,24 @@
   "recommendations": [
     "2gua.rainbow-brackets",
     "anweber.vscode-tidyhtml",
+    "bierner.github-markdown-preview",
+    "bierner.markdown-checkbox",
+    "bierner.markdown-preview-github-styles",
+    "davidanson.vscode-markdownlint",
     "dbaeumer.vscode-eslint",
     "douglaszaltron.nunjucks-vscode-extensionpack",
     "esbenp.prettier-vscode",
     "eseom.nunjucks-template",
     "github.vscode-pull-request-github",
     "ivangabriele.vscode-heroku",
+    "jerriepelser.copy-markdown-as-html",
     "luwenjiechn.nunjucks-vscode-snippets",
     "mkaufman.htmlhint",
     "mrmlnc.vscode-attrs-sorter",
     "oderwat.indent-rainbow",
     "okitavera.vscode-nunjucks-formatter",
     "pkosta2005.heroku-command",
-    "ronnidc.nunjucks"
+    "ronnidc.nunjucks",
+    "yzhang.markdown-all-in-one"
   ]
 }

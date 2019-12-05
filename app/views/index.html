@@ -34,42 +34,140 @@
         This kit lets you rapidly create HTML prototypes of NHS services.
       </p>
 
-      <hr>
+      <hr/>
 
       <h2>
-        About this page
+        Current version
       </h2>
 
-      <p>
-        Use this page as the index for your project.
-      </p>
+      <h3>
+        <a href="/sprint2/prototyping">Sprint 2</a>
+      </h3>
 
-      <p>
-        You'll find the code for this page at
-        <strong>/app/views/index.html</strong>.
-      </p>
+      <p>Ending 5 December 2019</p>
+      <ul>
+        <li>
+          <a href="/sprint2/admin/pages">Page list</a>
+        </li>
+      </ul>
+      {{ prototypingDetailsChangelog({
+        "text": "Changelog",
+        "sprintNumber": 2
+      }) }}
 
-      <p>
-        There is also an
-        <a href="/page-example">example page</a>, which contains a selection of NHS.UK frontend styles and components.
-      </p>
+      <h2>
+        Previous versions
+      </h2>
 
-      <hr>
+      <h3>
+        <a href="/sprint1/prototyping">Sprint 1</a>
+      </h3>
+
+      <p>Ending 21 November 2019</p>
+      <ul>
+        <li>
+          <a href="/sprint1/admin/pages">Page list</a>
+        </li>
+      </ul>
+      {{ prototypingDetailsChangelog({
+        "text": "Changelog",
+        "sprintNumber": 1
+      }) }}
+
+      <hr/>
+
+      <h2>
+        Prototyping examples
+      </h2>
+
+      <p>Here is an example of the new easy-route button.</p>
+
+      <p>Just feed the
+        <code>next</code>
+        key with a route value and that’s where it'll go.</p>
+
+      <p>No more fiddling around with
+        <code>routes.js</code>
+        every time you need to add a new page.</p>
+
+      <div>
+        <pre><code>
+  &#123;&#123; prototypingnextpage&#40;&#123;
+    &#34;next&#34;&#58; &#34;/current/prototyping&#34;,
+    &#34;text&#34;&#58; &#34;next page&#34;
+  &#125;&#41; &#125;&#125;
+        </code></pre>
+      </div>
+
+      <form method="post">
+        {{ prototypingNextPage({
+          "next": "/current/prototyping",
+          "text": "Next page"
+        }) }}
+      </form>
+
+      <hr/>
 
       <h2>
         Documentation
       </h2>
 
+      <h3>Start a new sprint</h3>
+      <p>To create a new sprint:</p>
       <ul>
-        <li>
-          Get started with
-          <a href="/docs">how to guides and page templates</a>
-        </li>
-        <li>
-          Copy and paste styles and components from the
-          <a href="https://beta.nhs.uk/service-manual/styles-components-patterns">NHS digital service manual</a>
-        </li>
+        <li>Duplicate the current sprint
+          <code>app/views/SPRINTNAME</code>
+          folder and make sure it is named for the new sprint (<code>sprint<em>n+1</em>
+          </code>)</li>
+        <li>Duplicate the current sprint
+          <code>app/assets/config/SPRINTNAME</code>
+          folder and make sure it is named for the new sprint (<code>sprint<em>n+1</em>
+          </code>)</li>
+        <li>In the new sprint's
+          <code>app/assets/config/SPRINTNAME/changelog.md</code>
+          file remove the old data and add an entry for the creation of the new sprint</li>
+        <li>Update the sprintName at the top of the new sprint's
+          <code>app/assets/config/SPRINTNAME/routes.js</code>
+          file</li>
       </ul>
+
+      <p>Then make this the new current sprint:</p>
+      <ul>
+        <li>Change the
+          <code>currentSprint</code>
+          variable in the root
+          <code>app/config.js</code>
+          file</li>
+        <li>Update this page's (<code>app/views/index.html</code>) content to reflect the new current sprint and move the old one to the “previous” section</li>
+      </ul>
+
+      <h3>Current sprint</h3>
+      <p>The current sprint prototype can always be reached via use of the word
+        <strong class="bold">current</strong>
+        in place of the sprint name in the url</p>
+      <p>Instead of using this:
+        <br/>
+        <code>http://localhost:3000/sprint17/section-name/page-name</code>
+      </p>
+      <p>You can reference this:
+        <br/>
+        <code>http://localhost:3000/<strong class="bold">current</strong>/section-name/page-name</code>
+      </p>
+      <p>This means a consistent url can be added to user stories without worrying that you are pointing to an old sprint.</p>
+      <p>Accessing an older sprint than the one set as current in the
+        <code>app/config.js</code>
+        will show a warning banner at the top of the page to alert you to the fact you might be viewing an outdated screen.</p>
+
+      <h3>Changelogs</h3>
+      <p>Each sprint has an associated changelog, a markdown file which lists the UR-related changes made to the prototype during that period. This is pulled into the list above.</p>
+      <p>This means:</p>
+      <ul>
+        <li>the team and stakeholders have an easy to access overview of what has changed</li>
+        <li>the UR can see if anything has happened which will affect how they conduct a session</li>
+        <li>changelogs can be collated and easily ported into an assessment document to show how a service was improved over time</li>
+      </ul>
+      <p>(more information about changelogs can be found in the readme:
+        <code>app/assets/config/documentation/changelog.md</code>)</p>
 
       <!-- End of content -->
 

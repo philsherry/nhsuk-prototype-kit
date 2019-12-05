@@ -89,16 +89,21 @@ function reload() {
 
 // Start browsersync
 function startBrowserSync(done){
-  browserSync.init({
-    proxy: 'localhost:' + port,
-    port: port + 1000,
-    ui: false,
-    files: ['app/views/**/*.*', 'docs/views/**/*.*'],
-    ghostmode: false,
-    open: false,
-    notify: true,
-    watch: true,
-  }, done);
+  browserSync.init(
+    {
+      files: ['app/views/**/*.*', 'docs/views/**/*.*'],
+      ghostmode: false,
+      logLevel: 'warn',
+      logPrefix: 'NHS.UK Prototype Kit',
+      notify: true,
+      open: false,
+      port: port + 1000,
+      proxy: 'localhost:' + port,
+      ui: false,
+      watch: true
+    },
+    done
+  )
   gulp.watch("public/**/*.*").on("change", reload);
 }
 

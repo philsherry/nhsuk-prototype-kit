@@ -24,123 +24,29 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <!-- Change the page title here -->
-      <h1>
-        Prototyping
-      </h1>
-
-      <!-- Add your content here -->
-      <!-- Styles and components can be found at https://beta.nhs.uk/service-manual/styles-components-patterns -->
-      <p class="nhsuk-lede-text">
-        Here are the things we hope to tackle by the end of today, time permitting.
-      </p>
-
-      <p>
-        For more styles, code snippets and guidance on components visit the
-        <a href="https://beta.nhs.uk/service-manual/styles-components-patterns">NHS digital service manual</a>.
-      </p>
+      <h1>Prototyping</h1>
 
       <figure class="nhsuk-image">
-        <img class="nhsuk-image__img" src="/images/placeholder-image-16-9.jpg" alt="A 16:9 image placeholder">
+        <img class="nhsuk-image__img" src="/images/placeholder-pizza-16-9.jpg" alt="A 16:9 pizza placeholder">
         <figcaption class="nhsuk-image__caption">
-          Image example
+          🍕 Vegan pizza &mdash; not a cat 😾
         </figcaption>
       </figure>
 
-      <h2>Level heading two</h2>
-
-      <div class="changelog">
-        <p>params.sprintNumber:
-          {{ params.sprintNumber }}</p>
-        <p>config.currentSprint:
-          {{ config.currentSprint }}</p>
-        <p>changelog:
-          {{ changelog }}</p>
-        <p>res.locals['viewingSprint']:
-          {{ res.locals['viewingSprint'] }}</p>
-        <p>res.locals['currentSprint']:
-          {{ res.locals['currentSprint'] }}</p>
-        <p>res.locals['isCurrentSprint']:
-          {{ res.locals['isCurrentSprint'] }}</p>
-        {% for log in changelog %}
-          {% if log.sprintName == sprintNumber %}
-            {{ log.data | md(false) | safe }}
-          {% endif %}
-        {% endfor %}
-      </div>
-
-      {{ detailsChangelog({
-        "classes": "nhsuk-expander",
-        "text": "Changelog",
-        "sprintNumber": 2
-      }) }}
-
-      {{ list({
-        "title": "Do",
-        "type": "tick",
-        "items": [
-          {
-            "item": "cover blisters that are likely to burst with a soft plaster or dressing"
-          },
-          {
-            "item": "wash your hands before touching a burst blister"
-          },
-          {
-            "item": "allow the fluid in a burst blister to drain before covering it with a plaster or dressing"
-          }
-        ]
-      }) }}
-
-      {{ list({
-        "title": "Don't",
-        "type": "cross",
-        "items": [
-          {
-            "item": "burst a blister yourself"
-          },
-          {
-            "item": "peel the skin off a burst blister"
-          },
-          {
-            "item": "pick at the edges of the remaining skin"
-          },
-          {
-            "item": "wear the shoes or use the equipment that caused your blister until it heals"
-          }
-        ]
-      }) }}
-
-      <h3>
-        Level heading three
-      </h3>
-
-      <p>
-        Body text:
-      </p>
-
       <ul>
         <li>
-          The quick brown
+          <a href="better-branching-and-routing">better branching and routing</a>
         </li>
         <li>
-          fox jumps over
+          <a href="organise-your-sprints">organise your sprints</a>
         </li>
         <li>
-          the lazy dog
+          use message files
+        </li>
+        <li>
+          <a href="wrangle-user-data">wrangle user data</a>
         </li>
       </ul>
-
-      {{ warningCallout({
-        "heading": "School, nursery or work",
-        "HTML": "<p>Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>"
-      }) }}
-
-      {{ reviewDate({
-        "lastReview": "12 February 2017",
-        "nextReview": "1 February 2020"
-      }) }}
-
-      <!-- End of content -->
 
     </div>
 

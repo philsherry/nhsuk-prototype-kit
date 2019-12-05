@@ -2,8 +2,10 @@
 
 <!-- Extends the layout from /docs/views/template.html -->
 {% extends "template.html" %}
-{% from "macros/nhsuk-details-changelog/macro.njk" import detailsChangelog with context %}
-{% from "macros/nhsuk-next-page/macro.njk" import nextPage with context %}
+{% from "macros/nhsuk-details-changelog/macro.njk" import prototypingDetailsChangelog with context %}
+{% from "macros/nhsuk-next-page/macro.njk" import prototypingNextPage with context %}
+{% from "macros/nhsuk-radios/macro.njk" import prototypingRadios with context %}
+{% from "macros/nhsuk-checkboxes/macro.njk" import prototypingCheckboxes with context %}
 
 <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 {% block headCSS %}
