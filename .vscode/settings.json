@@ -31,34 +31,14 @@
     "$unknown$"
   ],
   "css.validate": false,
-  "editor.accessibilitySupport": "off",
-  "editor.cursorBlinking": "phase",
-  "editor.cursorStyle": "block",
-  "editor.cursorWidth": 5,
-  "editor.detectIndentation": false,
-  "editor.fontSize": 20,
-  "editor.fontWeight": "400",
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.letterSpacing": 0.5,
-  "editor.lineHeight": 25,
-  "editor.multiCursorModifier": "alt",
-  "editor.renderWhitespace": "all",
-  "editor.rulers": [
-    70,
-    80
-  ],
-  "editor.scrollBeyondLastLine": true,
-  "editor.showFoldingControls": "always",
-  "editor.snippetSuggestions": "top",
-  "editor.suggestSelection": "first",
-  "editor.tabSize": 2,
-  "editor.wordWrap": "bounded",
-  "editor.wordWrapColumn": 80,
+  "emmet.includeLanguages": {
+    "njk": "html"
+  },
   "eslint.alwaysShowStatus": true,
   "eslint.autoFixOnSave": true,
   "files.associations": {
-    "*.html": "njk"
+    "*.html": "njk",
+    "*.njk": "njk"
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
@@ -74,6 +54,7 @@
       "allowReorder",
       "attributeName",
       "attributeType",
+      "attributeValue",
       "autoReverse",
       "baseFrequency",
       "baseProfile",
@@ -135,7 +116,7 @@
       "viewTarget",
       "xChannelSelector",
       "yChannelSelector",
-      "zoomAndPan",
+      "zoomAndPan"
     ],
     "attr-no-duplication": true,
     "attr-unsafe-chars": true,
@@ -159,14 +140,7 @@
     "title-require": true
   },
   "javascript.validate.enable": false,
-  "markdownlint.config": {
-    "MD024": {
-      "siblings_only": true
-    },
-    "MD041": false
-  },
   "scss.validate": false,
-  "terminal.integrated.fontSize": 18,
   "tidyHtml.formatOnSave": false,
   "tidyHtml.optionsTidy": {
     "add-xml-decl": false,
@@ -174,13 +148,13 @@
     "assume-xml-procins": false,
     "break-before-br": false,
     "escape-cdata": false,
-    "indent": "auto",
+    indent: "auto",
     "indent-attributes": false,
     "indent-cdata": false,
     "indent-spaces": 2,
     "indent-with-tabs": false,
     "input-xml": false,
-    "markup": true,
+    markup: true,
     "numeric-entities": false,
     "output-xhtml": false,
     "output-xml": false,
@@ -194,6 +168,6 @@
     "uppercase-attributes": false,
     "uppercase-tags": false,
     "vertical-space": false,
-    "wrap": 250
+    wrap: 250
   }
 }
