@@ -35,7 +35,6 @@
     "njk": "html"
   },
   "eslint.alwaysShowStatus": true,
-  "eslint.autoFixOnSave": true,
   "files.associations": {
     "*.html": "njk",
     "*.njk": "njk"
